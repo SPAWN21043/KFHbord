@@ -5,7 +5,8 @@ from django_ckeditor_5.fields import CKEditor5Field
 # Модель для описания сайта на главной странице
 class InfoSite(models.Model):
     id_info_site = models.BigAutoField(primary_key=True)
-    info_site_kfh = CKEditor5Field('Text', config_name='extends')
+    # info_site_kfh = models.TextField()
+    info_site_kfh = CKEditor5Field(verbose_name='Описание сайта', config_name='extends')
 
     class Meta:
         verbose_name = "Описание главной страницы"
@@ -15,7 +16,8 @@ class InfoSite(models.Model):
 # Модель для информации о КФХ в разделе о нас
 class AboutUs(models.Model):
     id_about_us = models.BigAutoField(primary_key=True)
-    about_us_kfh = CKEditor5Field('Text', config_name='extends')
+    # about_us_kfh = models.TextField()
+    about_us_kfh = CKEditor5Field(verbose_name='Описание о нас', config_name='extends')
 
     class Meta:
         verbose_name = "Описание страницы о нас"
@@ -70,8 +72,8 @@ class NewsKFH(models.Model):
 # Карточка КФХ
 class CardKFH(models.Model):
     id_card = models.BigAutoField(primary_key=True)
-    inn_kfh = models.IntegerField(max_length=20, name="ИНН")
-    ogrn_kfh = models.IntegerField(max_length=30, name="ОГРН")
+    inn_kfh = models.IntegerField(name="ИНН")
+    ogrn_kfh = models.IntegerField(name="ОГРН")
 
     class Meta:
         verbose_name = "Карточка КФХ"
